@@ -26,6 +26,11 @@ class Post1sController < ApplicationController
    	   post.update(post1_params)
    	   redirect_to post1_path(post.id)
    end
+   def destroy
+   	   post = Post1.find(params[:id])
+   	   post.destroy
+   	   redirect_to post1s_path
+   end
 
    private
    def post1_params
