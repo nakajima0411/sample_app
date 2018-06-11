@@ -12,13 +12,19 @@ class Post1sController < ApplicationController
         # 詳細画面へリダイレクト
         redirect_to post1_path(post.id)
    end
-
    def index
    	   @posts = Post1.all
    end
-
    def show
    	   @post = Post1.find(params[:id])
+   end
+   def edit
+   	   @post = Post1.find(params[:id])
+   end
+   def update
+   	   post = Post1.find(params[:id])
+   	   post.update(post1_params)
+   	   redirect_to post1_path(post.id)
    end
 
    private
