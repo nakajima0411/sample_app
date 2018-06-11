@@ -9,8 +9,16 @@ class Post1sController < ApplicationController
          post = Post1.new(post1_params)
         # DBへ保存する
          post.save
-        # トップ画面へリダイレクト
-        redirect_to '/top'
+        # 詳細画面へリダイレクト
+        redirect_to post1_path(post.id)
+   end
+
+   def index
+   	   @posts = Post1.all
+   end
+
+   def show
+   	   @post = Post1.find(params[:id])
    end
 
    private
